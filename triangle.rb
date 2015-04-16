@@ -14,6 +14,16 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  # check that none of the sides are 0 or less
+  if a <= 0 or b <= 0 or c <= 0
+    raise TriangleError
+  end
+
+  # check that adding up 2 sides is more than the 3rd side
+  if (a + b) <= c or (b + c) <= a or (a + c) <= b
+    raise TriangleError
+  end
+
   if a == b and b ==  c
     return :equilateral
   elsif a == b or a == c or b == c
